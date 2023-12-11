@@ -1,0 +1,22 @@
+<div class="container">
+    <form action="">
+        <p class="title">PASSWORD TEST</p>
+        <label class="passwordLabel" for="password">Entre your password: </label><br/>
+        <div class="password-field">
+            <input type="password"
+                [type]="showPassword ? 'text' : 'password'" 
+                name="password" 
+                class="passwordField" 
+                placeholder="password" 
+                [(ngModel)]="password" 
+                (ngModelChange)="test()"/>
+            <button (click)="togglePasswordVisibility()">
+                <div class="img-container">
+                    <img [src]="showPassword ? 'assets/invisible.png' : 'assets/visible.png'" class="image"/>
+                </div>
+            </button>
+        </div>
+        <p class="result" [ngStyle]="{'background-color':color,'color':'white'}">{{output}}</p>
+        <button (click)="generatePassword()" class="generate-button styled-button">Generate Password</button>
+    </form>
+</div>
