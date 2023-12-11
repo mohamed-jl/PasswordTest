@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { PasswordCracker } from 'src/PasswordCracker';
 
 
 
@@ -9,12 +10,13 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent{
-
+  cracker:PasswordCracker=new PasswordCracker;
   password:string="";
   score:number=0;
   output:string ="empty";
   color:string="black";
   showPassword: boolean = false;
+  crackResult:string='';
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -52,7 +54,6 @@ export class MainComponent{
   generatePassword() {
     const length = 12;
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=";
-    
     let password = '';
     for (let i = 0; i < length; ++i) {
       const randomIndex = Math.floor(Math.random() * charset.length);
@@ -60,5 +61,10 @@ export class MainComponent{
     }
     this.password = password;
     this.test();
+  }
+  oncrack():void{
+    this.crackResult=this.cracker.crackPassword(this.cracker.possibleChars,this.password.length,this.password)
+    //this.crackResult="password is not found after 30 secends."
+
   }
 }

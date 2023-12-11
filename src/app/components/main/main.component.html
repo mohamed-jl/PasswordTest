@@ -18,5 +18,7 @@
         </div>
         <p class="result" [ngStyle]="{'background-color':color,'color':'white'}">{{output}}</p>
         <button (click)="generatePassword()" class="generate-button styled-button">Generate Password</button>
+        <button (click)="oncrack()"  class="generate-button styled-button">try to crack</button>
+        <p class="crack-result">{{crackResult}}</p>
     </form>
 </div>

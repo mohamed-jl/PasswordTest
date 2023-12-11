@@ -93,10 +93,11 @@ input:hover{
     color: #444;
   }
   .generate-button {
-    padding: 15px 25px;
+    padding: 15px 25px 15px 15px;
     font-size: 20px;
     margin:auto ;
     margin-left: 45px;
+    margin-bottom: 15px;
   }
   
   /* Specific styles for the button */
